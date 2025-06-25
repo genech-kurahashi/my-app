@@ -1,0 +1,17 @@
+# buildspec.yml
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm ci
+  build:
+    commands:
+      - npx next build
+      - npx next export
+artifacts:
+  base-directory: out
+  files:
+    - '**/*'
